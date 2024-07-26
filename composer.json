@@ -1,0 +1,19 @@
+{
+    "name": "jaroslavpotocny/eshop",
+    "description": "A simple e-shop project",
+    "authors": [
+        {
+            "name": "Jaroslav Potocny",
+            "email": "jaroslav.potocny@example.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "monolog/monolog": "^3.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "YourNamespace\\": "src/"
+        }
+    }
+}
