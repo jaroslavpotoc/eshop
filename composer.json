@@ -1,13 +1,6 @@
 {
     "name": "jaroslavpotocny/eshop",
-    "description": "A simple e-shop project",
-    "authors": [
-        {
-            "name": "Jaroslav Potocny",
-            "email": "jaroslav.potocny@example.com"
-        }
-    ],
-    "minimum-stability": "stable",
+    "description": "A simple eShop application.",
     "require": {
         "monolog/monolog": "^3.7"
     },
@@ -15,5 +8,17 @@
         "psr-4": {
             "YourNamespace\\": "src/"
         }
-    }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jaroslav Potocny",
+            "email": "jaroslavpotocny@icloud.com"
+        }
+    ]
 }

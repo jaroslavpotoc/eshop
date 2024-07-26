@@ -1,8 +1,8 @@
 <?php
-require_once '../config/database.php';
-require_once '../config/csrf.php';
+require_once '../config/database.php'; // Include database connection
+require_once '../config/csrf.php'; // Include CSRF token functions
 
-// Validate CSRF token
+// Validate CSRF token for POST requests
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!validateCsrfToken($_POST['csrf_token'])) {
         echo "Invalid CSRF token";
@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// SQL query to calculate warehouse value
+// SQL query to calculate the total warehouse value in EUR
 $sql = '
     WITH combined AS (
         SELECT
@@ -37,12 +37,16 @@ $sql = '
 ';
 
 try {
+    // Prepare and execute SQL query
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    // Format and output the result
     $totalValue = number_format($result['total_warehouse_value_eur'], 2, ',', ' ');
     echo $totalValue . ' €';
 } catch (PDOException $e) {
+    // Output error message if SQL query fails
     echo "Error: " . $e->getMessage();
 }
 ?>
